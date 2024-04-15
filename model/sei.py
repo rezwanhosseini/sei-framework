@@ -211,6 +211,7 @@ class Sei(nn.Module):
     def forward(self, x):
         """Forward propagation of a batch.
         """
+        return x
         lout1 = self.lconv1(x)
         out1 = self.conv1(lout1)
 
@@ -234,7 +235,7 @@ class Sei(nn.Module):
         spline_out = self.spline_tr(out)
         reshape_out = spline_out.view(spline_out.size(0), 960 * self._spline_df)
         predict = self.classifier(reshape_out)
-        return predict
+        #return predict
 
 def criterion():
     """
